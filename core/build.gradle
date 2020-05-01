@@ -1,0 +1,68 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.jakewharton.butterknife'
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    testApi 'junit:junit:4.12'
+    androidTestApi 'androidx.test.ext:junit:1.1.1'
+    api 'androidx.appcompat:appcompat:1.1.0'
+    //网络请求框架
+    api 'com.squareup.retrofit2:retrofit:2.6.0'
+    api 'com.squareup.okhttp3:okhttp:3.12.1'
+    api 'com.squareup.retrofit2:converter-gson:2.2.0'
+    //这是retrofit2支持的数据解析器，创建retrofit实例时，可以添加
+    api 'com.squareup.retrofit2:converter-scalars:2.6.0'
+    api 'com.squareup.okhttp3:logging-interceptor:3.4.2'
+    //loader依赖
+    api 'com.wang.avi:library:2.1.3'
+    //帮助你快速实现recyclerView多布局
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.47'
+    api 'com.choices.divider:RecyclerView_Divider:1.0.0'
+    //Glide高效图片加载框架
+    api 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+    api 'com.choices.divider:RecyclerView_Divider:1.0.0'
+    api 'com.alibaba:fastjson:1.2.59'
+    // butterknife
+    api 'com.jakewharton:butterknife:10.1.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
+    // bottomBar
+    api 'com.roughike:bottom-bar:2.3.1'
+    // Fresco高校图片加载框架
+    api 'com.facebook.fresco:fresco:0.12.0'
+    // 支持 GIF 动图，需要添加
+    api 'com.facebook.fresco:animated-gif:0.12.0'
+    // 支持 WebP （静态图+动图），需要添加
+    api 'com.facebook.fresco:animated-webp:0.12.0'
+    api 'com.facebook.fresco:webpsupport:0.12.0'
+    // tab
+//    api 'com.android.support:design:27.1.1'
+    // 取图片主色工具
+    implementation 'androidx.palette:palette:1.0.0'
+    // zxing二维码，条形码识别
+    api "com.google.zxing:core:3.3.1"
+    api "com.journeyapps:zxing-android-embedded:3.5.0"
+}

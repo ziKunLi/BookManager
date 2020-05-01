@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="toolbar_size">50dp</dimen>
+    <dimen name="toolbar_text_size">24sp</dimen>
+    <dimen name="toolbar_sm_text_size">20sp</dimen>
+
+    <dimen name="personal_offer_text_size">12sp</dimen>
+    <dimen name="personal_offer_title_size">16sp</dimen>
+    <dimen name="personal_other_text_size">16sp</dimen>
+    <dimen name="personal_other_icon_size">18dp</dimen>
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+</resources>

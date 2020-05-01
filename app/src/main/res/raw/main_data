@@ -1,0 +1,115 @@
+{
+    "item": [
+        {
+            "type": "book",
+            "title": {
+                "mainTitle": "经典书籍",
+                "subTitle": "",
+                "iconUrl": "",
+                "buttonText": "更多",
+                "action": {
+                    "action": "courseSelect",
+                    "data": {
+                        "url": "https://ddd",
+                        "extInfoApi": "api/data/get",
+                        "extInfo": {}
+                    }
+                }
+            },
+            "books": [
+                {
+                    "author": [
+                        "（美）Brian W. Kernighan",
+                        "（美）Dennis M. Ritchie"
+                    ],
+                    "origin_title": "The C Programming Language",
+                    "image": "https://img9.doubanio.com\/view\/subject\/m\/public\/s1106934.jpg",
+                    "id": "1139336",
+                    "isbn10": "7111128060",
+                    "isbn13": "9787111128069",
+                    "title": "C程序设计语言",
+                    "price": "30.00元"
+                },
+                {
+                    "author": [
+                        "[美]粱勇（Y.Daniel Liang）"
+                    ],
+                    "origin_title": "Intro to Java Programming, Comprehensive Version (10th Edition)",
+                    "image": "https://img1.doubanio.com\/view\/subject\/m\/public\/s28274829.jpg",
+                    "id": "26590745",
+                    "isbn10": "7111506901",
+                    "isbn13": "9787111506904",
+                    "title": "Java语言程序设计（基础篇 原书第10版）",
+                    "price": "85.00元"
+                },
+                {
+                    "author": [
+                        "刘慈欣"
+                    ],
+                    "origin_title": "",
+                    "image": "https://img1.doubanio.com\/view\/subject\/m\/public\/s2768378.jpg",
+                    "id": "2567698",
+                    "isbn10": "7536692935",
+                    "isbn13": "9787536692930",
+                    "title": "三体",
+                    "price": "23.00"
+                }
+            ]
+        },
+        {
+            "type": "book",
+            "title": {
+                "mainTitle": "经典书籍",
+                "subTitle": "",
+                "iconUrl": "",
+                "buttonText": "更多",
+                "action": {
+                    "action": "courseSelect",
+                    "data": {
+                        "url": "https://ddd",
+                        "extInfoApi": "api/data/get",
+                        "extInfo": {}
+                    }
+                }
+            },
+            "books": [
+                {
+                    "author": [
+                        "[美] 詹姆斯·达什纳"
+                    ],
+                    "origin_title": "",
+                    "image": "https://img9.doubanio.com\/view\/subject\/m\/public\/s28258386.jpg",
+                    "id": "26545163",
+                    "isbn10": "7544840441",
+                    "isbn13": "9787544840446",
+                    "title": "移动迷宫Ⅱ",
+                    "price": "35.00元"
+                },
+                {
+                    "author": [
+                        "刘慈欣"
+                    ],
+                    "origin_title": "",
+                    "image": "https://img1.doubanio.com\/view\/subject\/m\/public\/s28793629.jpg",
+                    "id": "26807576",
+                    "isbn10": "7511360831",
+                    "isbn13": "9787511360830",
+                    "title": "赡养人类",
+                    "price": "38.00元"
+                },
+                {
+                    "author": [
+                        "(法)儒勒·凡尔纳"
+                    ],
+                    "origin_title": "The C Programming Language",
+                    "image": "https://img3.doubanio.com\/view\/subject\/m\/public\/s5835502.jpg",
+                    "id": "2161692",
+                    "isbn10": "7532742644",
+                    "isbn13": "9787532742646",
+                    "title": "海底两万里",
+                    "price": "19.00元"
+                }
+            ]
+        }
+    ]
+}

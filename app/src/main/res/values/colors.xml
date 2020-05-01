@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3381e3</color>
+    <color name="colorPrimaryDark">#3381e3</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="orangeLight">#33ffff33</color>
+    <color name="offerBg">#FC8200</color>
+    <color name="memberBg">#22ff8800</color>
+    <color name="allowanceBg">#22ff0800</color>
+    <color name="appBackground">#fff</color>
+    <color name="hint_text_color">#a0a0a0</color>
+
+    <color name="font1">#111111</color>
+    <color name="font2">#222222</color>
+    <color name="font3">#333333</color>
+    <color name="font4">#444444</color>
+    <color name="font5">#555555</color>
+    <color name="font6">#666666</color>
+    <color name="font7">#777777</color>
+    <color name="font8">#888888</color>
+    <color name="font9">#999999</color>
+    <color name="font10">#aaaaaa</color>
+    <color name="font11">#bbbbbb</color>
+    <color name="font12">#cccccc</color>
+    <color name="font13">#dddddd</color>
+    <color name="font14">#eeeeee</color>
+
+    <color name="personal_member_start">#66f0e930</color>
+    <color name="personal_member_end">#99f0a930</color>
+    
+    <color name="detail_bottom_bg">#dd202020</color>
+    <color name="detail_pick_tip_bg">#505050</color>
+    
+    <color name="detail_offer_stock">#ff4444</color>
+
+    <color name="home_blue">#3381e3</color>
+    <color name="home_blueCc">#3381e3</color>
+    <color name="home_divider">#aaaaaa</color>
+    <color name="home_gold">#fff000</color>
+    <color name="home_gray">#cccccc</color>
+    <color name="home_gray_6">#666666</color>
+    <color name="home_gray_8">#888888</color>
+    <color name="home_gray_9">#88999999</color>
+    <color name="home_gray_10">#aa666666</color>
+    <color name="home_orange">#FF6827</color>
+    <color name="home_orange_deep">#ff5000</color>
+    <color name="home_orange_pink">#FF9666</color>
+    <color name="home_red">#fc3b3b</color>
+    <color name="home_text">#333333</color>
+    <color name="home_white">#ffffff</color>
+    <color name="home_black">#000000</color>
+    <color name="home_black_2">#222222</color>
+    <color name="home_black_4">#444444</color>
+    <color name="home_black_5">#555555</color>
+    <color name="yellow_top3">#f9e4bb</color>
+    <color name="green_alpha80">#aa24c128</color>
+    <color name="green_alpha40">#3324c128</color>
+    <color name="green_alpha10">#1124c128</color>
+    <color name="green_alpha60">#6624c128</color>
+    <color name="green_alpha100">#24c128</color>
+    <color name="red_deep">#a52f2d</color>
+    <color name="red_deep40">#33a52f2d</color>
+    <color name="translat">#00000000</color>
+
+    <color name="pink">#fe9dbd</color>
+    <color name="pink40">#33fe9dbd</color>
+
+    <color name="home_orange40">#33FF6827</color>
+    <color name="home_blue40">#333381e3</color>
+
+    <color name="home_yellow">#ffa31d</color>
+    <color name="home_yellow40">#33ffa31d</color>
+
+    <color name="red_light">#ff5000</color>
+    <color name="cornsilk">#FFF8DC</color>
+    <color name="saddlebrown">#8B4513</color>
+
+    <color name="tran70_black">#b2000000</color>
+    <color name="label_life">#0096ff</color>
+
+    <!-- <color name="app_mainclolr">#00BCD4</color> -->
+    <color name="app_mainclolr">#FB6A8F</color>
+    <!--<color name="app_mainclolr">#2196F3</color>-->
+    <!--<color name="app_mainclolr">#CE3D3E</color>-->
+    <!--  <color name="app_mainclolr">#3FCAB8</color>-->
+
+    <!-- Github上的颜色 -->
+    <color name="app_qing2">#31C453</color>
+
+    <!-- 橘黄色，登录页面个人头像周围色调 -->
+    <color name="app_orange">#FB5137</color>
+
+    <!-- 淡淡的红色，登录页面个人头像周围色调 -->
+    <color name="app_red2">#F52A64</color>
+
+    <color name="app_grad1">#84fab0</color>
+    <color name="app_grad2">#8fd3f4</color>
+
+    <!-- 轻度灰色 -->
+    <color name="app_gray6">#F2F2F2</color>
+    <color name="app_gray5">#EEEEEE</color>
+    <color name="app_red">#d81e06</color>
+    <color name="app_bg">#E8E8E8</color>
+    <color name="app_gray">#999999</color>
+    <color name="app_gray2">#E6E6E6</color>
+    <color name="app_gray3">#f0f0f0</color>
+    <color name="app_gray4">#636363</color>
+
+    <color name="app_lvrou">#FFFFCC</color>
+    <color name="app_gadblue">#2196F3</color>
+    <color name="app_qing">#3FCAB8</color>
+
+    <color name="app_blue1">#2ABFFD</color>
+    <color name="app_blue2">#4F8CFE</color>
+    <color name="app_blue2Cc">#cc4F8CFE</color>
+    <color name="app_pink">#FB6A8F</color>
+
+    <color name="app_textview_content">#faf6f0</color>
+    <color name="app_textview_border1">#ffac37</color>
+    <color name="app_textview_border2">#24b9fe</color>
+
+    <color name="app_highlight">#BFF6F4</color>
+    <color name="app_highlightCc">#ccBFF6F4</color>
+    <color name="app_white2">#F4F8F8</color>
+    <color name="app_black2">#0E0E0E</color>
+    <color name="app_line">#D3D3D3</color>
+    <color name="app_green">#5ACE45</color>
+    <color name="app_white">#ffffff</color>
+    <color name="app_red_orange">#FF6633</color>
+    <color name="app_panel_bg">#EDF0F2</color>
+    <color name="app_head_bg">#F7F7F7</color>
+
+    <color name="table_head_font">#5D89B6</color>
+    <color name="table_head_bg">#C4F1FD</color>
+    <color name="dark">#3D3B46</color>
+    <color name="dark2">#8D8B99</color>
+    <color name="dark3">#5A5865</color>
+
+
+    <color name="bg">#FFFF99</color>
+    <color name="color_1">#AAA3DB</color>
+    <color name="color_2">#86ACE9</color>
+    <color name="color_3">#92D261</color>
+    <color name="color_4">#80D8A3</color>
+    <color name="color_5">#F1C672</color>
+    <color name="color_6">#FDAD8B</color>
+    <color name="color_7">#ADBEFF</color>
+    <color name="color_8">#94D6FA</color>
+    <color name="color_9">#C3B5F6</color>
+    <color name="color_10">#99CCFF</color>
+    <color name="color_11">#FBA6ED</color>
+
+    <color name="color_30">#EE8262</color>
+    <color name="color_31">#EE6363</color>
+    <color name="color_32">#EEB4B4</color>
+    <color name="color_33">#D2B48C</color>
+    <color name="color_34">#CD9B9B</color>
+    <color name="color_35">#5F9EA0</color>
+
+    <color name="useless">#E6E6E6</color>
+
+    <color name="app_black">#000000</color>
+
+
+    <color name="app_head_color">#CCCCCC</color>
+
+    <color name="ripple_touch_bg_color">#e7e7e7</color>
+    <color name="ripple_color">#d9d9d9</color>
+
+    <color name="course_bg_1">#effafe</color>
+    <color name="course_bg_2">#f0ffec</color>
+    <color name="course_bg_3">#f3fffc</color>
+
+
+    <color name="game1_blue">#00abcf</color>
+    <color name="game1_gray">#d5ddde</color>
+    <color name="game1_up">#d3d3d3</color>
+    <color name="game1_under">#bfbfbf</color>
+    <color name="bt">#FF9966</color>
+    <color name="equal">#66FF66</color>
+
+    <color name="search_bg">#F3F4F7</color>
+    <color name="search_line">#E0E0E0</color>
+    <color name="search_font">#D7D7DA</color>
+
+    <color name="theme_yellow">#FDCD00</color>
+    <color name="theme_gray">#EBEBEB</color>
+    <color name="theme_black">#393939</color>
+    <color name="theme_graytext">#8E8E93</color>
+    <color name="theme_searchbg">#DADBE2</color>
+    <color name="theme_litterblack">#474747</color>
+
+    <color name="scan_corner_color">#0effc2</color>
+    <color name="app_blue_bg">#63AEFF</color>
+    <color name="app_gray_bg">#D6D6D6</color>
+
+    <color name="app_hinttext_color">#E9E9E9</color>
+    <color name="app_course_textcolor_blue">#13B0F1</color>
+    <color name="app_course_bg_gray">#F4F8F8</color>
+    <color name="app_course_line">#E4EBEE</color>
+
+    <color name="app_refresh_black">#333333</color>
+    <color name="app_course_chooseweek_bg">#E2F7F6</color>
+    <color name="app_course_chooseweek_bg2">#F1FFFE</color>
+    <color name="app_course_chooseweek_lightbg">#B7F5F2</color>
+</resources>

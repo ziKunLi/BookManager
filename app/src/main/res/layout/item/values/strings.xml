@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bookDetails">书籍详情</string>
+    <string name="pages">页数：%s页</string>
+    <string name="isbn13">ISBN：%s</string>
+    <string name="publisher">%s / %s</string>
+    <string name="binding">%s / %s</string>
+    <string name="author">作者: %s</string>
+    <string name="descTag">简介</string>
+    <string name="listTag">目录</string>
+</resources>
