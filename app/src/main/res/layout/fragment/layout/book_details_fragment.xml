@@ -1,151 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.example.customui.view.BounceScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/tools"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     app:ignore="NamespaceTypo">
 
-    <LinearLayout
+    <Toolbar
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:background="@color/app_white"
+        android:title="@string/bookDetails"
+        android:titleTextColor="@color/font3" />
 
-        <Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:title="@string/bookDetails"
-            android:titleTextColor="@color/app_white" />
+    <com.example.customui.view.BounceScrollView
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_10"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_marginTop="@dimen/dp_10"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/title"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:singleLine="true"
-                    android:textColor="@color/font2"
-                    android:textSize="22sp" />
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/author"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_4"
-                    android:singleLine="true"
-                    android:textColor="@color/font6"
-                    android:textSize="12sp" />
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:textColor="@color/font2"
+                        android:textSize="22sp" />
 
-                <TextView
-                    android:id="@+id/binding"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_4"
-                    android:singleLine="true"
-                    android:textColor="@color/font6"
-                    android:textSize="12sp" />
+                    <TextView
+                        android:id="@+id/author"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_4"
+                        android:singleLine="true"
+                        android:textColor="@color/font6"
+                        android:textSize="12sp" />
 
-                <TextView
-                    android:id="@+id/publisher"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_4"
-                    android:singleLine="true"
-                    android:textColor="@color/font6"
-                    android:textSize="12sp" />
+                    <TextView
+                        android:id="@+id/binding"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_4"
+                        android:singleLine="true"
+                        android:textColor="@color/font6"
+                        android:textSize="12sp" />
 
-                <TextView
-                    android:id="@+id/pages"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_4"
-                    android:singleLine="true"
-                    android:textColor="@color/font6"
-                    android:textSize="12sp" />
+                    <TextView
+                        android:id="@+id/publisher"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_4"
+                        android:singleLine="true"
+                        android:textColor="@color/font6"
+                        android:textSize="12sp" />
 
-                <TextView
-                    android:id="@+id/isbn13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_4"
-                    android:singleLine="true"
-                    android:textColor="@color/font6"
-                    android:textSize="12sp" />
+                    <TextView
+                        android:id="@+id/pages"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_4"
+                        android:singleLine="true"
+                        android:textColor="@color/font6"
+                        android:textSize="12sp" />
 
+                    <TextView
+                        android:id="@+id/isbn13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_4"
+                        android:singleLine="true"
+                        android:textColor="@color/font6"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/bookCover"
+                    android:layout_width="112dp"
+                    android:layout_height="150dp"
+                    android:layout_marginStart="@dimen/dp_10"
+                    android:layout_marginEnd="16dp"
+                    fresco:actualImageScaleType="focusCrop"
+                    fresco:fadeDuration="1000"
+                    fresco:placeholderImage="@mipmap/place_holder_image"
+                    fresco:placeholderImageScaleType="fitCenter"
+                    fresco:roundBottomLeft="true"
+                    fresco:roundBottomRight="true"
+                    fresco:roundTopLeft="true"
+                    fresco:roundTopRight="true"
+                    fresco:roundedCornerRadius="10dp" />
             </LinearLayout>
 
-            <com.facebook.drawee.view.SimpleDraweeView
-                android:id="@+id/bookCover"
-                android:layout_width="112dp"
-                android:layout_height="150dp"
-                android:layout_marginStart="@dimen/dp_10"
-                android:layout_marginEnd="16dp"
-                fresco:actualImageScaleType="focusCrop"
-                fresco:fadeDuration="1000"
-                fresco:placeholderImage="@mipmap/place_holder_image"
-                fresco:placeholderImageScaleType="fitCenter"
-                fresco:roundBottomLeft="true"
-                fresco:roundBottomRight="true"
-                fresco:roundTopLeft="true"
-                fresco:roundTopRight="true"
-                fresco:roundedCornerRadius="10dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:paddingStart="16dp"
+                android:paddingTop="@dimen/dp_10"
+                android:paddingBottom="@dimen/dp_10"
+                android:text="@string/descTag"
+                android:textColor="@color/font2"
+                android:textSize="18sp" />
+
+            <com.example.customui.view.MoreTextView
+                android:id="@+id/summary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="4dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textColor="@color/font6"
+                app:moreTextColor="@color/font2"
+                app:moreTextLineSpacingExtra="4dp" />
+
+            <TextView
+                android:id="@+id/catalogTag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:paddingStart="16dp"
+                android:paddingTop="@dimen/dp_10"
+                android:paddingBottom="@dimen/dp_10"
+                android:text="@string/catalogTag"
+                android:textColor="@color/font2"
+                android:textSize="18sp" />
+
+            <com.example.customui.view.MoreTextView
+                android:id="@+id/catalog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="4dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textColor="@color/font6"
+                app:moreTextColor="@color/font2"
+                app:moreTextLineSpacingExtra="4dp" />
         </LinearLayout>
+    </com.example.customui.view.BounceScrollView>
+
+    <RelativeLayout
+        android:id="@+id/failTag"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="match_parent">
 
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/tipText"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_10"
-            android:paddingStart="16dp"
-            android:paddingTop="@dimen/dp_10"
-            android:paddingBottom="@dimen/dp_10"
-            android:text="@string/descTag"
-            android:textColor="@color/font2"
-            android:textSize="18sp" />
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:drawableTop="@drawable/ic_fail"
+            android:gravity="center"
+            android:drawablePadding="@dimen/dp_10"
+            android:text="查询失败" />
+    </RelativeLayout>
+</LinearLayout>
 
-        <com.example.customui.view.MoreTextView
-            android:id="@+id/summary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:lineSpacingExtra="4dp"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:textColor="@color/font6"
-            app:moreTextColor="@color/font2"
-            app:moreTextLineSpacingExtra="4dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_10"
-            android:paddingStart="16dp"
-            android:paddingTop="@dimen/dp_10"
-            android:paddingBottom="@dimen/dp_10"
-            android:text="@string/listTag"
-            android:textColor="@color/font2"
-            android:textSize="18sp" />
-
-        <com.example.customui.view.MoreTextView
-            android:id="@+id/list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:lineSpacingExtra="4dp"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:textColor="@color/font6"
-            app:moreTextColor="@color/font2"
-            app:moreTextLineSpacingExtra="4dp" />
-    </LinearLayout>
-</com.example.customui.view.BounceScrollView>

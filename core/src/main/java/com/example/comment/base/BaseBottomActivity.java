@@ -1,16 +1,21 @@
 package com.example.comment.base;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.comment.BottomBarFragment;
-import com.example.customui.R;
-import com.example.customui.R2;
+import com.example.comment.router.RouterConfig;
+import com.example.comment.router.RouterUtil;
+import com.example.comment.util.GlobalCatchException;
+import com.example.core.R;
+import com.example.core.R2;
 import com.roughike.bottombar.OnTabSelectListener;
 
 import java.lang.reflect.Constructor;
@@ -23,7 +28,10 @@ import butterknife.BindView;
 
 import static androidx.fragment.app.FragmentTransaction.TRANSIT_FRAGMENT_OPEN;
 
-public abstract class BaseBottomActivity extends BaseActivity  implements OnTabSelectListener {
+/**
+ * 适用于底部导航栏 + view模式，也可适用于底部导航栏 + viewpager模式
+ */
+public abstract class BaseBottomActivity extends BaseActivity implements OnTabSelectListener {
 
     @BindView(R2.id.bottomFragment)
     FrameLayout bottomFragment;
@@ -74,8 +82,6 @@ public abstract class BaseBottomActivity extends BaseActivity  implements OnTabS
 
     /**
      * 设置当前显示的碎片
-     *
-     * @param currentIndex
      */
     public void setCurrentFragment(int currentIndex) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -90,13 +96,14 @@ public abstract class BaseBottomActivity extends BaseActivity  implements OnTabS
             try {
                 Constructor constructor = fragmentClasses.get(currentIndex).getConstructor(BaseActivity.class);
                 fragments[currentIndex] = (BaseFragment) constructor.newInstance(this);
-                //添加栈
-                List<BaseFragment> list = new ArrayList<>();
-                list.add(fragments[currentIndex]);
-                fragmentStackHashMap.put(fragments[currentIndex], list);
             } catch (Exception e) {
-                e.printStackTrace();
+                GlobalCatchException.getInstance().uncaughtException(Thread.currentThread(), e);
+                return;
             }
+            //添加栈
+            List<BaseFragment> list = new ArrayList<>();
+            list.add(fragments[currentIndex]);
+            fragmentStackHashMap.put(fragments[currentIndex], list);
             //第一次初始化碎片
             fragmentTransaction.add(layoutId, fragments[currentIndex]);
         } else {
@@ -123,12 +130,29 @@ public abstract class BaseBottomActivity extends BaseActivity  implements OnTabS
         fragmentStackHashMap.put(fragments[lastIndex], fragmentList);
     }
 
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        bottomBarFragment.setBottomBarRes(setBottomBar());
+        bottomBarFragment.onSaveInstance(outState);
+        List<BaseFragment> fragmentList = fragmentStackHashMap.get(fragments[lastIndex]);
+        if (fragmentList == null) {
+            return;
+        }
+        for (int i = 0; i < fragmentList.size(); i++) {
+            fragmentList.get(i).onSaveInstance(outState);
+        }
+    }
+
     public void backToMain() {
         backToMain(null);
     }
 
     public void backToMain(HashMap<String, Object> data) {
-        Objects.requireNonNull(back()).onNewIntent(data);
+        BaseFragment baseFragment = back();
+        if(baseFragment != null){
+            baseFragment.setData(data);
+        }
     }
 
     private BaseFragment back() {

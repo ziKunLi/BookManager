@@ -13,7 +13,6 @@ import static com.example.comment.router.RouterConfig.getInstance;
 
 public class RouterUtil {
 
-    private HashMap<Class<? extends BaseFragment>, BaseFragment> fragmentHashMap = new HashMap<>();
 
     // 根据action跳转界面，action中包括需要跳转界面对应的路由名称，跳转所携带的数据，跳转完后是否需要返回数据，返回数据列表
     public static void startFragment(String actionJson) {
@@ -32,7 +31,8 @@ public class RouterUtil {
             data.put("url", dataBean.getUrl());
             data.put("extInfoApi", dataBean.getExtInfoApi());
             data.put("extInfo", dataBean.getExtInfo());
-            Constructor constructor = getInstance().getFragment(action.getAction()).getDeclaredConstructor(BaseActivity.class);
+            Class<? extends BaseFragment> fragmentClass = getInstance().getFragment(action.getAction());
+            Constructor constructor = fragmentClass.getDeclaredConstructor(BaseActivity.class);
             constructor.setAccessible(true);
             getInstance().getRootActivity().startFragment((BaseFragment) constructor.newInstance(getInstance().getRootActivity()), data);
         } catch (Exception e) {

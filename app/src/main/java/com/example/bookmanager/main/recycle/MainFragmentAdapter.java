@@ -14,6 +14,7 @@ public class MainFragmentAdapter extends BaseMultipleAdapter {
 
     @Override
     protected void initType() {
+        // 绑定rv相关item
         bindType(BookListItem.class, new BookHolder.Provider());
     }
 }

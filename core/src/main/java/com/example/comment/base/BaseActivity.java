@@ -69,8 +69,8 @@ public abstract class BaseActivity extends AppCompatActivity {
      * @param data
      */
     public void startFragment(BaseFragment fragment, HashMap<String, Object> data) {
+        fragment.setData(data);
         startFragment(fragment);
-        fragment.onSaveInstance(data);
     }
 
     /**

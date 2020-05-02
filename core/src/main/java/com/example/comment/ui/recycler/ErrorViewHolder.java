@@ -7,8 +7,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-import com.example.customui.R;
-import com.example.customui.R2;
+import com.example.core.R;
+import com.example.core.R2;
 
 import butterknife.BindView;
 

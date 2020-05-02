@@ -41,7 +41,6 @@
         <attr name="moreSwitchTextColor" format="color" />
         <attr name="moreTextSize" format="dimension" />
         <attr name="moreSwitchTextSize" format="dimension" />
-        <attr name="moreSwitchDrawable" format="reference" />
         <attr name="moreText" format="string" />
         <attr name="moreTextLineSpacingExtra" format="dimension"/>
     </declare-styleable>

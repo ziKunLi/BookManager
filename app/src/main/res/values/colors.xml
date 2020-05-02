@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3381e3</color>
-    <color name="colorPrimaryDark">#3381e3</color>
+    <color name="colorPrimary">#90f0f0</color>
+    <color name="colorPrimaryDark">#fff</color>
     <color name="colorAccent">#D81B60</color>
     <color name="orangeLight">#33ffff33</color>
     <color name="offerBg">#FC8200</color>

@@ -1,8 +1,8 @@
 package com.example.customui.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -10,8 +10,6 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -20,7 +18,7 @@ import androidx.annotation.Nullable;
 import com.example.comment.util.DensityUtil;
 import com.example.customui.R;
 
-public class MoreTextView extends LinearLayout implements CompoundButton.OnCheckedChangeListener, ViewTreeObserver.OnPreDrawListener {
+public class MoreTextView extends LinearLayout implements View.OnClickListener, ViewTreeObserver.OnPreDrawListener {
 
 
     private int moreSwitchTextSize = 12;
@@ -31,13 +29,13 @@ public class MoreTextView extends LinearLayout implements CompoundButton.OnCheck
     private int minHeight;
     private int maxLine;
     private int minLine = 3;
-    private int lineHeight = -1;
     private TextView textView;
-    private CheckBox checkBox;
-    private CharSequence[] moreSwitchHints = {"展开", "收起"};
-    private Drawable moreSwitchDrawable;
+    private TextView openStateView;
+    private int[] moreSwitchHints = {R.drawable.ic_open, R.drawable.ic_close};
     private String text;
     private float lineSpace;
+    private LinearLayout container;
+    private boolean openState = false;
 
     public MoreTextView(Context context) {
         this(context, null);
@@ -55,27 +53,26 @@ public class MoreTextView extends LinearLayout implements CompoundButton.OnCheck
         minLine = attributes.getInt(R.styleable.MoreTextView_minLine, minLine);
         moreTextSize = attributes.getDimensionPixelSize(R.styleable.MoreTextView_moreTextSize, moreTextSize);
         moreSwitchTextSize = attributes.getDimensionPixelSize(R.styleable.MoreTextView_moreSwitchTextSize, moreSwitchTextSize);
-        moreSwitchDrawable = attributes.getDrawable(R.styleable.MoreTextView_moreSwitchDrawable);
         text = attributes.getString(R.styleable.MoreTextView_moreText);
         lineSpace = attributes.getDimension(R.styleable.MoreTextView_moreTextLineSpacingExtra, 4f);
         attributes.recycle();
         init();
     }
 
+    @SuppressLint("CutPasteId")
     private void init() {
         setOrientation(VERTICAL);
-        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.layout_more, this, true);
-        textView = inflate.findViewById(R.id.tv_more_content);
-        checkBox = inflate.findViewById(R.id.cb_more_checked);
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.layout_more, this, true);
+        textView = view.findViewById(R.id.tv_more_content);
+        openStateView = view.findViewById(R.id.cb_more_checked);
+        container = view.findViewById(R.id.container);
         textView.setMinLines(minLine);
         textView.setTextColor(moreTextColor);
         textView.setText(text);
         textView.setLineSpacing(DensityUtil.dip2px(lineSpace), 1);
         textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, moreTextSize);
-        checkBox.setTextColor(moreSwitchTextColor);
-        checkBox.setTextSize(TypedValue.COMPLEX_UNIT_PX, moreSwitchTextSize);
-        setSwitchDrawable(moreSwitchDrawable);
         textView.getViewTreeObserver().addOnPreDrawListener(this);
+        openStateView.setBackground(getResources().getDrawable(moreSwitchHints[0]));
     }
 
     /**
@@ -86,68 +83,7 @@ public class MoreTextView extends LinearLayout implements CompoundButton.OnCheck
     public void setText(CharSequence sequence) {
         textView.setText(sequence);
         textView.getViewTreeObserver().addOnPreDrawListener(this);
-        checkBox.setOnCheckedChangeListener(this);
-    }
-
-    /**
-     * 设置按钮的样式
-     *
-     * @param drawable drawable
-     */
-    public void setSwitchStyle(Drawable drawable) {
-        if (drawable == null) {
-            throw new NullPointerException("drawable is null !!!!!!!!");
-        }
-
-        drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-        checkBox.setCompoundDrawables(drawable, null, null, null);
-    }
-
-    /**
-     * 设置按钮的样式
-     *
-     * @param drawable drawable
-     */
-    private void setSwitchDrawable(Drawable drawable) {
-        if (drawable == null) {
-            return;
-        }
-        setSwitchStyle(drawable);
-    }
-
-    @Override
-    public void onCheckedChanged(CompoundButton compoundButton, boolean open) {
-        textView.clearAnimation();
-        final int deltaValue;
-        final int startValue = textView.getHeight();
-        if (open) {
-            //展开
-            deltaValue = maxHeight - startValue;
-        } else {
-            //缩进
-            deltaValue = minHeight - startValue;
-        }
-        setMoreSwitchHints();
-        Animation animation = new Animation() {
-            protected void applyTransformation(float interpolatedTime, Transformation t) {
-                textView.setHeight((int) (startValue + deltaValue * interpolatedTime));
-                if (interpolatedTime == 0) {
-                    t.clear();
-                }
-            }
-        };
-        animation.setDuration(350);
-        textView.startAnimation(animation);
-    }
-
-    private void setMoreSwitchHints() {
-        if (noDrawable()) {
-            if (checkBox.isChecked()) {
-                checkBox.setText(moreSwitchHints[1]);
-            } else {
-                checkBox.setText(moreSwitchHints[0]);
-            }
-        }
+        container.setOnClickListener(this);
     }
 
     @Override
@@ -156,11 +92,6 @@ public class MoreTextView extends LinearLayout implements CompoundButton.OnCheck
         maxLine = textView.getLineCount(); //获取当前最大的line
         // 求出最大的高度
         maxHeight = textView.getHeight();
-        //如果点击了展开  此时更新数据时 我们不想自动关闭它
-        if (checkBox.isChecked()) {
-            textView.setHeight(maxHeight);
-            return false;
-        }
         if (maxLine > minLine) {
             textView.setLines(minLine); //设置为最小的行数
             //获取最小行的高度
@@ -170,21 +101,38 @@ public class MoreTextView extends LinearLayout implements CompoundButton.OnCheck
                     minHeight = textView.getHeight();
                 }
             });
-            if (noDrawable()) {
-                checkBox.setText(moreSwitchHints[0]);
-            }
-            checkBox.setVisibility(VISIBLE);
+            openStateView.setVisibility(VISIBLE);
             return false;
-        } else {
-            if (noDrawable()) {
-                checkBox.setText(moreSwitchHints[1]);
-            }
-            checkBox.setVisibility(GONE);
         }
         return true;
     }
 
-    private boolean noDrawable() {
-        return moreSwitchDrawable == null;
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.container) {
+            textView.clearAnimation();
+            final int deltaValue;
+            final int startValue = textView.getHeight();
+            openState = !openState;
+            if (openState) {
+                //展开
+                deltaValue = maxHeight - startValue;
+                openStateView.setBackground(getResources().getDrawable(moreSwitchHints[1]));
+            } else {
+                //缩进
+                deltaValue = minHeight - startValue;
+                openStateView.setBackground(getResources().getDrawable(moreSwitchHints[0]));
+            }
+            Animation animation = new Animation() {
+                protected void applyTransformation(float interpolatedTime, Transformation t) {
+                    textView.setHeight((int) (startValue + deltaValue * interpolatedTime));
+                    if (interpolatedTime == 0) {
+                        t.clear();
+                    }
+                }
+            };
+            animation.setDuration(maxLine > 10 ? 400 : 200);
+            textView.startAnimation(animation);
+        }
     }
 }

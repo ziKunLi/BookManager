@@ -7,7 +7,7 @@ import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatDialog;
 import com.example.comment.util.UiUtil;
-import com.example.customui.R;
+import com.example.core.R;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.ArrayList;
